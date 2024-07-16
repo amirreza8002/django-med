@@ -12,7 +12,12 @@ env.read_env(os.path.join(BASE_DIR, ".env"))
 
 ALLOWED_HOSTS = []
 
-DJANGO_APPS = [
+INSTALLED_APPS = [
+    # server
+    "daphne",
+    # cms
+    # "djangocms_admin_style",
+    # django
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -22,16 +27,38 @@ DJANGO_APPS = [
     "django.contrib.sites",
     "django.contrib.sitemaps",
     "django.contrib.flatpages",
-]
-
-THIRD_PARTY_APPS = []
-
-LOCAL_APPS = [
+    # cms
+    #     "cms",
+    #     "menus",
+    #     "treebeard",
+    #     "sekizai",
+    #     "djangocms_alias",
+    #     "filer",
+    #     "easy_thumbnails",
+    #     "djangocms_text_ckeditor",
+    #     "djangocms_frontend",
+    #     "djangocms_frontend.contrib.accordion",
+    #     "djangocms_frontend.contrib.alert",
+    #     "djangocms_frontend.contrib.badge",
+    #     "djangocms_frontend.contrib.card",
+    #     "djangocms_frontend.contrib.carousel",
+    #     "djangocms_frontend.contrib.collapse",
+    #     "djangocms_frontend.contrib.content",
+    #     "djangocms_frontend.contrib.grid",
+    #     "djangocms_frontend.contrib.image",
+    #     "djangocms_frontend.contrib.jumbotron",
+    #     "djangocms_frontend.contrib.link",
+    #     "djangocms_frontend.contrib.listgroup",
+    #     "djangocms_frontend.contrib.media",
+    #     "djangocms_frontend.contrib.tabs",
+    #     "djangocms_frontend.contrib.utilities",
+    # htmx
+    "django_htmx",
+    # local
     "accounts",
     "pages",
 ]
 
-INSTALLED_APPS = LOCAL_APPS + THIRD_PARTY_APPS + DJANGO_APPS
 
 MIGRATION_MODULES = {"sites": "medical.contrib.sites.migrations"}
 
@@ -43,7 +70,13 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     "allauth.account.middleware.AccountMiddleware",
+    "django_htmx.middleware.HTMXMiddleware",
+    # "cms.middleware.user.CurrentUserMiddleware",
+    # "cms.middleware.page.CurrentPageMiddleware",
+    # "cms.middleware.toolbar.ToolbarMiddleware",
+    # "cms.middleware.language.LanguageCookieMiddleware",
 ]
 
 ROOT_URLCONF = "django_project.urls"
@@ -59,6 +92,9 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "django.template.context_processors.i18n",
+                # "sekizai.context_processors.sekizai",
+                # "cms.context_processors.cms_settings",
             ],
         },
     },
@@ -66,7 +102,8 @@ TEMPLATES = [
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
-WSGI_APPLICATION = "django_project.wsgi.application"
+# WSGI_APPLICATION = "django_project.wsgi.application"
+ASGI_APPLICATION = "django_project.asgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -191,3 +228,19 @@ ACCOUNT_UNIQUE_EMAIL = True
 
 
 ADMIN_URL = "admin/"
+
+# cms
+# CMS_CONFIRM_VERSION4 = True
+# CMS_TEMPLATES = [
+#     ("pages/home.html", "Home page template")
+# ]
+# THUMBNAIL_HIGH_RESOLUTION = True
+# THUMBNAIL_PROCESSORS = (
+#     'easy_thumbnails.processors.colorspace',
+#     'easy_thumbnails.processors.autocrop',
+#     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
+#     'easy_thumbnails.processors.filters'
+# )
+
+# x frame
+X_FRAME_OPTIONS = "SAMEORIGIN"
