@@ -857,6 +857,24 @@ asgiref = ">=3.6"
 django = ">=3.2"
 
 [[package]]
+name = "django-jalali"
+version = "7.0.0"
+description = "Jalali Date support for Django model and admin interface"
+optional = false
+python-versions = "*"
+files = [
+    {file = "django_jalali-7.0.0-py3-none-any.whl", hash = "sha256:17cb4da1cbd78a4f1e94b3e0bfc932780f24279f2c875c5694c4d9dbf8311135"},
+    {file = "django_jalali-7.0.0.tar.gz", hash = "sha256:c09a6d832e97c153744f0d28e90f2f67f01957a48c39de089a0cdee367ec4a33"},
+]
+
+[package.dependencies]
+django = ">=4.2"
+jdatetime = ">=5.0.0"
+
+[package.extras]
+drf = ["djangorestframework (>=3.12)"]
+
+[[package]]
 name = "django-parler"
 version = "2.3"
 description = "Simple Django model translations without nasty hacks, featuring nice admin integration."
@@ -869,6 +887,25 @@ files = [
 
 [package.dependencies]
 Django = ">=2.2"
+
+[[package]]
+name = "django-phonenumber-field"
+version = "8.0.0"
+description = "An international phone number field for django models."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "django_phonenumber_field-8.0.0-py3-none-any.whl", hash = "sha256:196c917b70c01a98e327f482eb8a4a4a55a29891db551f99078585397370b3ba"},
+    {file = "django_phonenumber_field-8.0.0.tar.gz", hash = "sha256:8a560fe1b01b94c9de8cde22bc373b695f023cc6df4baba00264cb079da9f631"},
+]
+
+[package.dependencies]
+Django = ">=3.2"
+phonenumbers = {version = ">=7.0.2", optional = true, markers = "extra == \"phonenumbers\""}
+
+[package.extras]
+phonenumbers = ["phonenumbers (>=7.0.2)"]
+phonenumberslite = ["phonenumberslite (>=7.0.2)"]
 
 [[package]]
 name = "django-polymorphic"
@@ -1188,6 +1225,31 @@ files = [
 ]
 
 [[package]]
+name = "jalali-core"
+version = "1.0.0"
+description = "a Gregorian to Jalali and inverse date convertor"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "jalali_core-1.0.0-py3-none-any.whl", hash = "sha256:84e6f5090eadfb35234f24fad084be831d00da3c0b238ee001e8a1fd49bf7924"},
+    {file = "jalali_core-1.0.0.tar.gz", hash = "sha256:f4287c70c630323dcf0a3ab26df905ba4d451e230ac1f65b3bb2f77797894a2b"},
+]
+
+[[package]]
+name = "jdatetime"
+version = "5.0.0"
+description = "Jalali datetime binding for python"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "jdatetime-5.0.0-py3-none-any.whl", hash = "sha256:37e23c710d7e9bde7c37d0cc3ff9e273323889790e902a1ef3ad99148f094fb9"},
+    {file = "jdatetime-5.0.0.tar.gz", hash = "sha256:2cc603d913c0d8e328928454d3d295261cb037e9950227f67c9629ab4710fdf9"},
+]
+
+[package.dependencies]
+jalali-core = ">=1.0"
+
+[[package]]
 name = "jmespath"
 version = "1.0.1"
 description = "JSON Matching Expressions"
@@ -1429,6 +1491,17 @@ python-versions = ">=3.8"
 files = [
     {file = "pathspec-0.12.1-py3-none-any.whl", hash = "sha256:a0d503e138a4c123b27490a4f7beda6a01c6f288df0e4a8b79c7eb0dc7b4cc08"},
     {file = "pathspec-0.12.1.tar.gz", hash = "sha256:a482d51503a1ab33b1c67a6c3813a26953dbdc71c31dacaef9a838c4e29f5712"},
+]
+
+[[package]]
+name = "phonenumbers"
+version = "8.13.40"
+description = "Python version of Google's common library for parsing, formatting, storing and validating international phone numbers."
+optional = false
+python-versions = "*"
+files = [
+    {file = "phonenumbers-8.13.40-py2.py3-none-any.whl", hash = "sha256:9582752c20a1da5ec4449f7f97542bf8a793c8e2fec0ab57f767177bb8fc0b1d"},
+    {file = "phonenumbers-8.13.40.tar.gz", hash = "sha256:f137c2848b8e83dd064b71881b65680584417efa202177fd330e2f7ff6c68113"},
 ]
 
 [[package]]
@@ -2232,4 +2305,4 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "dd2346bfeb094afc38807d07f27a12ca43fa4d7227fc3d31ada11e59f3b7b544"
+content-hash = "4b39a5ffaaac911ef5b1c4c6f41c0d2c582a0e369f3027a045f087b6517557f9"

@@ -19,6 +19,8 @@ pillow-avif-plugin = "^1.4.6"
 argon2-cffi = "^23.1.0"
 django-htmx = "^1.18.0"
 daphne = "^4.1.2"
+django-phonenumber-field = {extras = ["phonenumbers"], version = "^8.0.0"}
+django-jalali = "^7.0.0"
 
 [tool.poetry.group.cms.dependencies]
 django-cms = "^4.1.1"
