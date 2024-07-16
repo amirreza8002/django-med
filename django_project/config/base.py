@@ -2,6 +2,7 @@ from django.contrib.messages import constants as messages
 
 from pathlib import Path
 import environ
+import locale
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -13,6 +14,8 @@ env.read_env(os.path.join(BASE_DIR, ".env"))
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
+    # jalali
+    "django_jalali",
     # server
     "daphne",
     # cms
@@ -57,10 +60,15 @@ INSTALLED_APPS = [
     # local
     "accounts",
     "pages",
+    # phone number
+    "phonenumber_field",
+    # allauth
+    "allauth",
+    "allauth.account",
 ]
 
 
-MIGRATION_MODULES = {"sites": "medical.contrib.sites.migrations"}
+MIGRATION_MODULES = {"sites": "contrib.sites.migrations"}
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -111,7 +119,7 @@ ASGI_APPLICATION = "django_project.asgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": env.str("POSTGRES_NAME", default="medical"),
+        "NAME": env.str("POSTGRES_NAME", default="postgres"),
         "USER": env.str("POSTGRES_USER", default="postgres"),
         "PASSWORD": env.str("POSTGRES_PASSWORD", default="postgres"),
         "HOST": env.str("POSTGRES_HOST", default="localhost"),
@@ -244,3 +252,9 @@ ADMIN_URL = "admin/"
 
 # x frame
 X_FRAME_OPTIONS = "SAMEORIGIN"
+
+# phone number
+PHONENUMBER_DEFAULT_REGION = "IR"
+
+# jalali date
+locale.setlocale(locale.LC_ALL, "fa_IR.UTF-8")

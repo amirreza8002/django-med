@@ -23,7 +23,7 @@ INTERNAL_IPS = [  # noqa: F405
     "127.0.0.1",
 ]
 
-INSTALLED_APPS += ["django_extensions", "debug_toolbar"]  # noqa F405
+INSTALLED_APPS += [ "debug_toolbar"]  # noqa F405
 INSTALLED_APPS = ["whitenoise.runserver_nostatic"] + INSTALLED_APPS
 
 MIDDLEWARE += [  # noqa: F405
