@@ -6,7 +6,7 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 
 class CustomUser(AbstractUser):
-    birth = jmodels.jDateField
+    birth = jmodels.jDateField()
     phone_number = PhoneNumberField(blank=True, null=True)
 
     objects = jmodels.jManager()
