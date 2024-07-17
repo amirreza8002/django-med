@@ -80,7 +80,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.locale.LocaleMiddleware",
     "allauth.account.middleware.AccountMiddleware",
-    "django_htmx.middleware.HTMXMiddleware",
+    "django_htmx.middleware.HtmxMiddleware",
     # "cms.middleware.user.CurrentUserMiddleware",
     # "cms.middleware.page.CurrentPageMiddleware",
     # "cms.middleware.toolbar.ToolbarMiddleware",
@@ -126,7 +126,7 @@ DATABASES = {
         "PORT": "5432",
     }
 }
-DATABASES["default"]["ATOMIC_REQUESTS"] = True
+# DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 
 # Password validation
