@@ -225,7 +225,7 @@ AUTHENTICATION_BACKENDS = (
 )
 # login
 LOGIN_URL = "account_login"
-LOGIN_REDIRECT_URL = "posts:post_list"
+LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "logged_out"
 
 ACCOUNT_SIGNUP_PASSWORD_TWICE = False

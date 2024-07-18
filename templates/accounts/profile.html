@@ -1,0 +1,17 @@
+{% extends '_base.html' %}
+{% load jformat %}
+
+{% block body %}
+  <p>hello {{ user.username }}</p>
+
+  <p>this page is to show the info we have about you</p>
+
+  <p>name: {% if user.first_name %}{{ user.first_name }}{% else %}unknown{% endif %}</p>
+  <p>last_name: {% if user.last_name %}{{ user.last_name }}{% else %}unknown{% endif %}</p>
+
+  <p>date of birth: {% if user.birth %}{{ user.birth|jformat }}{% else %}unknown{% endif %}</p>
+  <p>phone number: {% if user.phone_number %}{{ user.phone_number }}{% else %}unknown{% endif %}</p>
+
+
+  <p><a href="{% url 'profile-edit' user.username %}">edit your info</a></p>
+{% endblock %}
