@@ -3,7 +3,7 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
-  welcome {% if user.is_authenticated %}{{ user.username }}{% else %}stranger{% endif %}
+  welcome {% if request.auser.is_authenticated %}{{ request.auser.username }}{% else %}stranger{% endif %}
 {% endblock %}
 
 
