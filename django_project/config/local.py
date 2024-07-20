@@ -23,23 +23,23 @@ INTERNAL_IPS = [  # noqa: F405
     "127.0.0.1",
 ]
 
-INSTALLED_APPS += ["debug_toolbar"]  # noqa F405
-INSTALLED_APPS = ["whitenoise.runserver_nostatic"] + INSTALLED_APPS
+# INSTALLED_APPS += ["debug_toolbar"]  # noqa F405
+# INSTALLED_APPS = ["whitenoise.runserver_nostatic"] + INSTALLED_APPS
 
-MIDDLEWARE += [  # noqa: F405
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
-]
+# MIDDLEWARE += [  # noqa: F405
+#     "debug_toolbar.middleware.DebugToolbarMiddleware",
+# ]
 
-MIDDLEWARE.insert(1, "whitenoise.middleware.WhiteNoiseMiddleware")
+# MIDDLEWARE.insert(1, "whitenoise.middleware.WhiteNoiseMiddleware")
 
-DEBUG_TOOLBAR_CONFIG = {
-    "DISABLE_PANELS": ["debug_toolbar.panels.redirects.RedirectsPanel"],
-    "SHOW_TEMPLATE_CONTEXT": True,
-}
+# DEBUG_TOOLBAR_CONFIG = {
+#     "DISABLE_PANELS": ["debug_toolbar.panels.redirects.RedirectsPanel"],
+#     "SHOW_TEMPLATE_CONTEXT": True,
+# }
 
 
 ADMIN_URL = "ov-admin/"
 
-STORAGE["staticfiles"][  # noqa F405
-    "BACKEND"
-] = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+# STORAGE["staticfiles"][  # noqa F405
+#     "BACKEND"
+# ] = "whitenoise.storage.CompressedManifestStaticFilesStorage"
