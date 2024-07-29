@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "django-boiler"
+name = "medical"
 version = "0.1.0"
 description = ""
 authors = ["amirreza <amir.rsf1380@gmail.com>"]

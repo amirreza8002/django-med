@@ -1,6 +1,9 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
-from django import forms
+
+from django_jalali.forms.widgets import jDateTimeInput
+
+from phonenumber_field.widgets import RegionalPhoneNumberWidget
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -14,13 +17,22 @@ class CustomUserChangeForm(UserChangeForm):
         pass
 
 
-class UserUpdateForm(forms.ModelForm):
+class UserUpdateForm(UserChangeForm):
+    password = None
+
     class Meta(CustomUserCreationForm.Meta):
         fields = (
-            "username",
-            "email",
             "first_name",
             "last_name",
             "birth",
             "phone_number",
         )
+
+        widgets = {
+            "birth": jDateTimeInput(),
+            "phone_number": RegionalPhoneNumberWidget(
+                attrs={
+                    "placeholder": "شماره تلفن",
+                }
+            ),
+        }

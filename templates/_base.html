@@ -12,7 +12,12 @@
   <body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
     <header>
       <h1><a href="{% url 'home' %}">Med</a></h1>
-      <h3>{% if not request.auser.is_authenticated %}<a href="{% url 'account_login' %}">login</a>{% else %}<a href="{%  url 'profile' request.auser.username %}">profile</a><a href="{% url 'account_logout' %}">logout</a>{% endif %}</h3>
+      <h3>{% if not request.auser.is_authenticated %}
+        <a href="{% url 'account_login' %}">login</a>
+      {% else %}
+        <p><a href="{%  url 'profile' request.auser.username %}">profile</a></p>
+        <p><a href="{% url 'account_logout' %}">logout</a></p>
+      {% endif %}</h3>
       <p>{{ request.auser }}</p>
     </header>
 
