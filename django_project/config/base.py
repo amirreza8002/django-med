@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     # local
     "accounts",
     "pages",
+    "records",
     # phone number
     "phonenumber_field",
     # allauth
