@@ -66,6 +66,8 @@ INSTALLED_APPS = [
     # allauth
     "allauth",
     "allauth.account",
+    # pictures
+    "pictures",
 ]
 
 
@@ -260,3 +262,22 @@ PHONENUMBER_DEFAULT_REGION = "IR"
 
 # jalali date
 locale.setlocale(locale.LC_ALL, "fa_IR.UTF-8")
+
+# pictures setting
+PICTURES = {
+    "BREAKPOINTS": {
+        "xs": 576,
+        "s": 768,
+        "m": 992,
+        "l": 1200,
+        "xl": 1400,
+    },
+    "GRID_COLUMNS": 12,
+    "CONTAINER_WIDTH": 1200,
+    "FILE_TYPES": ["WEBP"],
+    "PIXEL_DENSITIES": [1, 2],
+    "USE_PLACEHOLDERS": False,
+    "QUEUE_NAME": "pictures",
+    "PROCESSOR": "pictures.tasks.process_picture",
+
+}
