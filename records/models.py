@@ -25,7 +25,7 @@ class Record(models.Model):
     condition = models.CharField(max_length=255)
     description = models.TextField()
     images = models.ForeignKey(Image, on_delete=models.CASCADE, related_name="record")
-    medicines = models.ManyToManyField(Medicine)
+    medicines = models.ManyToManyField(Medicine, related_name="record")
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
