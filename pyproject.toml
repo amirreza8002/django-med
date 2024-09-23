@@ -37,7 +37,7 @@ django-sekizai = "^4.1.0"
 whitenoise = {extras = ["brotli"], version = "^6.7.0"}
 django-debug-toolbar = "^4.4.6"
 black = "^24.4.2"
-ruff = "^0.5.2"
+ruff = "^0.6.7"
 mypy = "^1.10.1"
 django-stubs = "^5.0.2"
 pytest = "^8.2.2"
